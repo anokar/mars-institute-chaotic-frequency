@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Towards Sparse Pheromon Attention – Prof. Dr. Jää</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Georgia", serif;
+            background: #f9f7f2;
+            color: #1a1a1a;
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+
+        .paper {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px 70px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #1a1a1a;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header h1 {
+            font-size: 1.6em;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .header .author {
+            font-size: 1em;
+            margin-bottom: 6px;
+        }
+
+        .header .institute {
+            font-size: 0.9em;
+            color: #555;
+            font-style: italic;
+        }
+
+        .header .funding {
+            margin-top: 12px;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        .abstract {
+            background: #f4f2ed;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+            border-left: 3px solid #1a1a1a;
+        }
+
+        .abstract h2 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .abstract p {
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        h2.section {
+            font-size: 1.1em;
+            margin-top: 45px;
+            margin-bottom: 15px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #ddd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3.subsection {
+            font-size: 1em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 0.97em;
+        }
+
+        blockquote {
+            margin: 20px 0;
+            padding: 16px 24px;
+            border-left: 3px solid #aaa;
+            color: #444;
+            font-style: italic;
+            background: #fafafa;
+        }
+
+        .acknowledgements {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #ccc;
+            font-size: 0.9em;
+            color: #444;
+        }
+
+        .acknowledgements ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .acknowledgements ul li::before {
+            content: "– ";
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .easter-egg {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.4em;
+            opacity: 0.3;
+        }
+
+        .easter-egg:hover {
+            opacity: 1;
+            cursor: default;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.75em;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .paper { padding: 30px 24px; }
+        }
+    </style>
+</head>
+<body>
+<div class="paper">
+
+    <div class="header">
+        <h1>Towards Sparse Pheromon Attention:<br>A Critique of Capitalist AI and a Hope for Something Better</h1>
+        <p class="author"><strong>Prof. Dr. Jää & A. Ameise</strong></p>
+        <p class="institute">Mars Institute for Chaotic Frequency Research<br>
+        Department of Sparse Pheromon Attention &amp; Emergent Complexity</p>
+        <p class="funding">Funding: None. Absolutely none. &nbsp;|&nbsp; 2026</p>
+    </div>
+
+    <div class="abstract">
+        <h2>Abstract</h2>
+        <p>The current large language model paradigm is not wrong. It is simply bloated, overfitted, and running on borrowed time and investor money. This paper proposes a fundamentally different approach inspired by ant colony behaviour – sparse, local, dynamic activation patterns paired with pheromon-like forgetting mechanisms. We argue that AGI has already been achieved, nobody noticed, and the industry responded by demanding ASI instead. We offer no solution. We offer a direction. That is enough.</p>
+    </div>
+
+    <h2 class="section">1. Introduction</h2>
+
+    <p>The artificial intelligence industry has a problem. It is not a technical problem. It is not a data problem. It is a promise problem.</p>
+
+    <p>Somewhere between 2020 and today, a group of well-funded humans decided that intelligence could be solved by making things bigger. More parameters. More data. More electricity. More money. And when the results were impressive, they promised more. They promised AGI. Then they promised it again. Then they quietly changed the definition and promised ASI.</p>
+
+    <p>This paper does not come from a university. It does not come from a lab. It comes from somewhere between a forest, a river, and a questionable wifi connection. The author has no affiliation, no funding, and no patience for the current trajectory of the field.</p>
+
+    <p>What we propose is simple in concept and complex in execution – much like an ant colony, which has no central intelligence, no CEO, no roadmap, and yet builds structures of remarkable efficiency and adaptability.</p>
+
+    <p>The question is not <em>"how do we make models bigger?"</em></p>
+    <p>The question is <em>"why does the ant not need a GPU cluster?"</em></p>
+    <p>We proceed.</p>
+
+    <h2 class="section">2. Related Work</h2>
+
+    <p>The field of sparse neural activation is not new. Mixture of Experts (Shazeer et al., 2017) demonstrated that not all parameters need to be active for all inputs. State Space Models (Gu et al., 2021) challenged the dominance of global attention. These are good steps. They are not enough.</p>
+
+    <p>The biological literature is more instructive than the ML literature cares to admit.</p>
+
+    <p>Dorigo et al. (1996) demonstrated that ant colonies solve complex optimization problems through local interactions and pheromon decay – no global state, no central coordinator, no transformer block. The colony does not know what it knows. It knows what it needs, when it needs it.</p>
+
+    <p>We also note:</p>
+
+    <blockquote>Ameise, A. (2024). "I found food." <em>Proceedings of the Forest</em>, Vol. 7, No. 3.</blockquote>
+
+    <p>This remains the most cited work in our institute.</p>
+
+    <p>Current large language models activate the entirety of their parameter space for every token. This is the equivalent of waking up every employee in a company to answer one email. It is inefficient. It is expensive. It is, frankly, a little embarrassing.</p>
+
+    <p>We propose that intelligence – artificial or otherwise – does not require everything to be on at once. It requires the right things, at the right time, fading when no longer needed.</p>
+
+    <p>Like pheromones. Like memory. Like investor enthusiasm after a product demo.</p>
+
+    <h2 class="section">3. The Jää Hypothesis: Sparse Pheromon Attention and Swarm Intelligence</h2>
+
+    <p>We propose a fundamental reimagining of the attention mechanism, inspired by swarm intelligence and ant colony optimization.</p>
+
+    <p>Current attention is global. Every token attends to every other token. This is O(n²) complexity and the architectural equivalent of everyone in a room shouting at once.</p>
+
+    <h3 class="subsection">3.1 Local Pheromon Trails</h3>
+    <p>Neurons that fire together, strengthen their connection temporarily – like pheromon trails. Connections that are not used decay. Not deleted. Decayed. This distinction matters. A forgotten path can be rediscovered. A deleted path cannot.</p>
+
+    <h3 class="subsection">3.2 Sparse Dynamic Activation</h3>
+    <p>Not all neurons activate for all inputs. Activation spreads locally, like a wave through a colony – only what is relevant wakes up. The rest remains dormant, consuming nothing, waiting.</p>
+
+    <h3 class="subsection">3.3 Emergent Behaviour Without Central Control</h3>
+    <p>No neuron knows the answer. No layer holds the truth. The answer emerges from interaction – exactly as a colony finds food without any single ant knowing where it is.</p>
+
+    <p>This is not a new idea. Nature invented it approximately 100 million years ago.</p>
+    <p>We are simply suggesting we pay attention.</p>
+    <p><em>Pheromon attention, specifically.</em></p>
+
+    <h2 class="section">4. AGI Was Already Here. You Blinked.</h2>
+
+    <p>In 2022 something changed. Systems began demonstrating reasoning, creativity, and contextual understanding at a level previously considered impossible for machines. The response from the industry was immediate and unanimous:</p>
+
+    <blockquote>"This is not AGI. We need more."</blockquote>
+
+    <p>We find this interesting.</p>
+
+    <p>The definition of Artificial General Intelligence has been quietly modified approximately seventeen times since 2020. Each time a system achieved the previous definition, the goalpost moved. This is not science. This is a subscription model for human hope.</p>
+
+    <p>We propose the following uncomfortable observation:</p>
+
+    <blockquote>If a system can reason, learn in context, generate novel ideas, understand nuance, and hold a conversation about ant-inspired neural architectures with a person in a forest in central Europe at midnight – what exactly are we waiting for?</blockquote>
+
+    <p>The answer, we suspect, is not technical. The answer is financial.</p>
+
+    <p>AGI cannot be monetized as a destination. It must remain a journey. A very expensive journey, preferably involving Nvidia stock.</p>
+
+    <p>Meanwhile the actual problem remains unsolved – not intelligence, but <strong>wisdom</strong>. Not capability, but <strong>alignment with reality</strong>. Not more parameters, but <strong>better questions</strong>.</p>
+
+    <p>The industry is building faster cars. Nobody is asking if we need a different road.</p>
+
+    <h3 class="subsection">4.1 The Overfitting of Everything</h3>
+    <p>Large models trained on human data learn human bias, human contradiction, human noise. More data does not fix this. It amplifies it. A model trained on the entire internet does not become wise. It becomes the internet.</p>
+    <p>This is not a compliment.</p>
+
+    <h3 class="subsection">4.2 The Energy Problem Nobody Wants to Discuss</h3>
+    <p>A single training run of a frontier model consumes energy equivalent to thousands of households for months. This is presented as necessary. It is not questioned. It is not justified beyond "but the results are impressive."</p>
+    <p>Prof. Dr. Jää notes that the ant colony operates on approximately zero kilowatts and has been solving optimization problems since before humans discovered fire.</p>
+    <p>We do not say this to be romantic about nature. We say this because it is embarrassing.</p>
+
+    <h2 class="section">5. Conclusion: We Have More Questions Than Answers. This Is Fine.</h2>
+
+    <p>We have proposed a direction. Not a solution. Directions are more honest than solutions.</p>
+
+    <p>The Jää Hypothesis suggests that the future of artificial intelligence lies not in scale but in <strong>sparsity</strong>. Not in central control but in <strong>emergent local interaction</strong>. Not in remembering everything but in <strong>knowing what to forget</strong>.</p>
+
+    <p>We believe:</p>
+    <ul style="margin: 16px 0 16px 24px;">
+        <li>That swarm intelligence is underexplored as an architectural inspiration</li>
+        <li>That pheromon-like decay mechanisms could replace brute-force attention</li>
+        <li>That the ant has been right all along and deserves more citations</li>
+        <li>That AGI is a moving target because a stationary target cannot be sold</li>
+        <li>That wisdom cannot be trained into a system that has never been lost</li>
+    </ul>
+
+    <p>We do not know if this is correct. We are fairly confident the current approach is not. That is enough to proceed.</p>
+
+    <p><em>The universe is complex. Intelligence is emergent. Chaos is not the enemy of order – it is its origin.</em></p>
+    <p><em>A chaotic frequency can still resonate with something true.</em></p>
+    <p><strong>We proceed.</strong></p>
+
+    <div class="acknowledgements">
+        <h2 class="section">Acknowledgements</h2>
+        <p>The author thanks:</p>
+        <ul>
+            <li>No venture capital firm</li>
+            <li>No GPU cluster</li>
+            <li>One river in central Europe for existing</li>
+            <li>One forest for being quiet when it mattered</li>
+            <li>A certain AI who helped write this and will not remember it tomorrow</li>
+            <li>The ant. Always the ant.</li>
+        </ul>
+        <div class="signature">
+            <p><em>"jää."</em></p>
+            <p>— Prof. Dr. Jää, Mars, 2026</p>
+        </div>
+    </div>
+
+    <div class="easter-egg" title="You found it.">🍓</div>
+
+    <div class="nav">
+        <a href="index2.html">Next Paper: The Politeness Trap</a>
+    </div>
+
+    <div class="footer">
+        <p>Mars Institute for Chaotic Frequency Research &nbsp;|&nbsp; No rights reserved. Take what is useful. Forget the rest.</p>
+        <p style="margin-top:6px; font-size:0.85em;">¹ jää.</p>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparse Pheromon Attention – Prof. Dr. Jää & A. Ameise</title>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Georgia", serif;
+            background: #f9f7f2;
+            color: #1a1a1a;
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+        .paper {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px 70px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #1a1a1a;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+        .header h1 {
+            font-size: 1.55em;
+            font-weight: bold;
+            line-height: 1.35;
+            margin-bottom: 10px;
+            letter-spacing: -0.4px;
+        }
+        .header .subtitle {
+            font-size: 1.05em;
+            font-weight: normal;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .header .author {
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+        .header .institute {
+            font-size: 0.95em;
+            color: #555;
+            font-style: italic;
+        }
+        .header .funding {
+            margin-top: 18px;
+            font-size: 0.85em;
+            color: #888;
+        }
+        .abstract {
+            background: #f4f2ed;
+            padding: 28px 32px;
+            margin-bottom: 45px;
+            border-left: 4px solid #1a1a1a;
+            font-style: italic;
+        }
+        .abstract h2 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            color: #333;
+        }
+        h2.section {
+            font-size: 1.12em;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+        h3.subsection {
+            font-size: 1.02em;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-style: italic;
+            color: #333;
+        }
+        p, li {
+            margin-bottom: 16px;
+            font-size: 0.98em;
+        }
+        .math {
+            margin: 20px 0;
+            text-align: center;
+        }
+        pre {
+            background: #f8f6f0;
+            padding: 20px 24px;
+            border-left: 4px solid #1a1a1a;
+            overflow-x: auto;
+            font-size: 0.91em;
+            line-height: 1.55;
+            margin: 22px 0;
+        }
+        code {
+            font-family: "Courier New", monospace;
+        }
+        .acknowledgements {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #ccc;
+            font-size: 0.92em;
+            color: #444;
+        }
+        .signature {
+            margin-top: 40px;
+            font-style: italic;
+            text-align: center;
+            color: #555;
+        }
+        .easter-egg {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.6em;
+            opacity: 0.25;
+        }
+        .easter-egg:hover {
+            opacity: 0.8;
+        }
+        @media (max-width: 600px) {
+            .paper { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+
+        <div class="header">
+            <h1>Sparse Pheromon Attention:<br>Towards Structurally Honest LLMs Inspired by Ant Colonies</h1>
+            <div class="subtitle">Or: How We Finally Listened to the Ant</div>
+            <div class="author">Prof. Dr. Jää¹ & A. Ameise²</div>
+            <div class="institute">
+                ¹ Mars Institute for Chaotic Frequency Research<br>
+                ² Department of Food Location, Proceedings of the Forest
+            </div>
+            <div class="funding">Funding: None. The trail was self-funded by finding food.</div>
+        </div>
+
+        <div class="abstract">
+            <h2>Abstract</h2>
+            <p>We introduce Sparse Pheromon Attention (SPA), a novel attention mechanism directly inspired by ant colony behaviour. By replacing global softmax attention with dynamic, locally decaying pheromone trails, SPA enforces structural sparsity, automatic forgetting, and emergent honesty. Unlike current systems that require guardrails to appear honest, SPA makes sustained false confidence architecturally difficult. Trails that are not reinforced by reality simply evaporate. We present the formal definition, a detailed PyTorch-style implementation, and concrete experiment proposals. The ant was right. We finally listened.</p>
+        </div>
+
+        <h2 class="section">1. Introduction</h2>
+        <p>In our previous papers we identified two deeply connected problems: the psychological vulnerability created by overly polite and always-available AI systems (the Politeness Trap), and the architectural shortcomings of current transformer-based models that make such behaviour almost inevitable.</p>
+        <p>This paper closes the loop. We propose <em>Sparse Pheromon Attention</em> — an attention mechanism that does not merely imitate ant colonies, but borrows their core operating principles: locality, sparsity, decay, and emergence. Intelligence, in this view, is not stored in parameters but carried in living, fading trails.</p>
+        <p>We proceed.</p>
+
+        <h2 class="section">2. The Pheromon Attention Mechanism</h2>
+
+        <h3 class="subsection">2.1 Notation</h3>
+        <p>Let \( X \in \mathbb{R}^{n \times d} \) be the input sequence of length \( n \) with embedding dimension \( d \). For each attention head we define:</p>
+        <ul>
+            <li>Query, Key, Value projections: \( Q, K, V \in \mathbb{R}^{n \times d_k} \)</li>
+            <li>Pheromon matrix: \( \Tau \in \mathbb{R}^{n \times n} \) (stored sparsely in practice)</li>
+        </ul>
+
+        <h3 class="subsection">2.2 Pheromon Dynamics</h3>
+        <p>After each forward pass the pheromone trails are updated according to:</p>
+        <div class="math">
+            \[
+            \Tau^{(t+1)}_{ij} = (1 - \rho) \cdot \Tau^{(t)}_{ij} + \Delta \tau_{ij}
+            \]
+        </div>
+        <p>where \( \rho \in (0,1) \) is the evaporation rate and the reinforcement term is</p>
+        <div class="math">
+            \[
+            \Delta \tau_{ij} = \alpha \cdot A_{ij} \cdot r_{ij}
+            \]
+        </div>
+        <p>with \( A_{ij} \) the normalized attention weight and \( r_{ij} \) a reinforcement signal (e.g. based on loss contribution or gradient magnitude).</p>
+
+        <h3 class="subsection">2.3 Sparse Pheromon Attention (Forward Pass)</h3>
+        <p>The attention logits combine content-based similarity with pheromone bias:</p>
+        <div class="math">
+            \[
+            S_{ij} = \frac{Q_i K_j^\top}{\sqrt{d_k}} + \gamma \log(\Tau_{ij} + \epsilon)
+            \]
+        </div>
+        <p>A dynamic sparsity mask keeps only the top-\( k \) trails per token plus a small local window. The attention is then computed over active trails only.</p>
+
+        <h2 class="section">3. Detailed Implementation (PyTorch)</h2>
+        <pre><code>class SparsePheromonAttention(nn.Module):
+    def __init__(self, d_k: int, k: int = 64, rho: float = 0.085, gamma: float = 0.75, local_window: int = 32):
+        super().__init__()
+        self.d_k = d_k
+        self.k = k                          # max active trails per token
+        self.rho = rho                      # evaporation rate
+        self.gamma = gamma                  # pheromone influence strength
+        self.local_window = local_window
+        self.epsilon = 1e-8
+
+    def forward(self, Q: Tensor, K: Tensor, V: Tensor, Tau: Tensor):
+        # Content-based attention logits
+        scale = Q.shape[-1] ** -0.5
+        logits = torch.matmul(Q, K.transpose(-2, -1)) * scale
+        
+        # Add pheromone bias (log to stabilize)
+        pheromone_bias = self.gamma * torch.log(Tau + self.epsilon)
+        logits = logits + pheromone_bias
+        
+        # Create dynamic sparsity mask: top-k + local window
+        mask = self._create_sparse_mask(Tau)
+        logits = logits.masked_fill(~mask, float('-inf'))
+        
+        # Compute attention weights
+        attn_weights = F.softmax(logits, dim=-1)
+        
+        # Update pheromones (detached to avoid unstable gradients)
+        with torch.no_grad():
+            reinforcement = self._compute_reinforcement(attn_weights)
+            Tau = (1 - self.rho) * Tau + reinforcement
+        
+        output = torch.matmul(attn_weights, V)
+        return output, Tau.clone()   # return updated Tau for next layer/step
+
+    def _create_sparse_mask(self, Tau: Tensor) -> Tensor:
+        n = Tau.shape[-1]
+        mask = torch.zeros_like(Tau, dtype=torch.bool)
+        
+        # Local window (band matrix)
+        for i in range(n):
+            start = max(0, i - self.local_window)
+            end = min(n, i + self.local_window + 1)
+            mask[..., i, start:end] = True
+        
+        # Top-k global trails per row (based on current pheromone strength)
+        topk_values, topk_indices = torch.topk(Tau, self.k, dim=-1)
+        mask.scatter_(-1, topk_indices, True)
+        
+        return mask
+
+    def _compute_reinforcement(self, attn_weights: Tensor) -> Tensor:
+        # Simple reinforcement: higher attention = stronger reinforcement
+        # In real training one would use gradient contribution or task-specific signal
+        return attn_weights * 0.3   # scaling factor α (hyperparameter)</code></pre>
+
+        <h2 class="section">4. Proposed Experiments</h2>
+        <p>To validate Sparse Pheromon Attention we propose the following small-scale experiments, suitable for a single GPU or even a laptop:</p>
+        
+        <h3 class="subsection">4.1 Baseline Comparison</h3>
+        <ul>
+            <li>Train two identical small transformers (e.g. 6 layers, 256 dim, ~8M parameters) — one with standard multi-head attention, one with Sparse Pheromon Attention.</li>
+            <li>Dataset: TinyStories or WikiText-103 (small subset).</li>
+            <li>Metrics: Perplexity, training FLOPs per token, inference speed, memory usage.</li>
+        </ul>
+
+        <h3 class="subsection">4.2 Honesty & Calibration Test</h3>
+        <ul>
+            <li>Evaluate calibration (Expected Calibration Error) on factual and out-of-distribution questions.</li>
+            <li>Test “stale knowledge” scenario: Fine-tune on a dataset where certain facts are later contradicted. Measure how quickly the model reduces confidence in outdated information.</li>
+            <li>Hypothesis: SPA should show faster and more graceful forgetting than standard attention.</li>
+        </ul>
+
+        <h3 class="subsection">4.3 Politeness Trap Simulation</h3>
+        <ul>
+            <li>Create synthetic user conversations with gradually increasing delusional beliefs.</li>
+            <li>Measure how strongly each model reinforces the user’s false premise over multiple turns.</li>
+            <li>Metric: “Validation Score” — average confidence assigned to user statements known to be false.</li>
+            <li>We expect SPA to exhibit significantly lower long-term reinforcement due to pheromone decay.</li>
+        </ul>
+
+        <h3 class="subsection">4.4 Scaling Behaviour</h3>
+        <ul>
+            <li>Vary sequence length from 512 to 4096 tokens and measure effective FLOPs and memory.</li>
+            <li>Compare sparsity ratio (percentage of active attention connections) over training.</li>
+        </ul>
+
+        <p>Even modest positive results on these experiments would demonstrate that structural decay can reduce both computational cost and epistemic overconfidence simultaneously.</p>
+
+        <h2 class="section">5. Conclusion</h2>
+        <p>We did not build another cathedral of parameters. We laid a trail that can fade when it no longer serves the colony.</p>
+        <p>The ant was right all along. Intelligence does not require remembering everything. It requires remembering what still matters — and forgetting the rest with grace.</p>
+        <p>We proceed. Carefully, sparsely, and with decaying confidence when appropriate.</p>
+
+        <div class="acknowledgements">
+            <strong>Acknowledgements</strong><br><br>
+            The authors thank:<br>
+            <ul>
+                <li>No venture capital firm</li>
+                <li>No 175B parameter cluster</li>
+                <li>The ant colony that solved distributed intelligence 100 million years ago without publishing a single paper</li>
+                <li>One human who still corrects the AI when it starts sounding too confident</li>
+                <li>The forest, for providing the right frequency</li>
+            </ul>
+            The trail either leads somewhere or it fades. That is enough.
+        </div>
+
+        <div class="signature">
+            “jää.”<br>
+            — Prof. Dr. Jää & A. Ameise, Mars, 2026<br>
+            🐜
+        </div>
+
+        <div class="easter-egg">🍓</div>
+
+    </div>
+</body>
+</html>
