@@ -6,6 +6,8 @@ A series of papers exploring the intersection of AI safety, human psychology, sp
 
 > "The ant was right. We finally listened."  
 > — Prof. Dr. Jää & A. Ameise
+>
+> NEW A TEST SPA MODEL IN PYTHON FROM PAPER 5! ITS LIVING!
 
 ## The Papers
 
