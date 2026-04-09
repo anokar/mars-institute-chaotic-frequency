@@ -1,5 +1,7 @@
 # Mars Institute for Chaotic Frequency Research
 
+> NEW A TEST SPA MODEL IN PYTHON FROM PAPER 5! ITS LIVING!
+
 **Official Technical Report Series**
 
 A series of papers exploring the intersection of AI safety, human psychology, sparse architectures, and ant colony intelligence.
@@ -7,7 +9,7 @@ A series of papers exploring the intersection of AI safety, human psychology, sp
 > "The ant was right. We finally listened."  
 > — Prof. Dr. Jää & A. Ameise
 >
-> NEW A TEST SPA MODEL IN PYTHON FROM PAPER 5! ITS LIVING!
+
 
 ## The Papers
 
