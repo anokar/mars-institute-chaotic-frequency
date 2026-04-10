@@ -33,7 +33,7 @@ A series of papers exploring the intersection of AI safety, human psychology, sp
 ### Paper 5 – Sparse Pheromon Attention (Technical Proposal)
 **Title:** Sparse Pheromon Attention: Towards Structurally Honest LLMs Inspired by Ant Colonies  
 [Download HTML](./paper5-sparse-pheromon-attention.html)  
-[View Colab Prototype](./https://colab.research.google.com/... ) (coming soon)
+[View Colab Prototype](./Spars_Pheromon_Attention.ipynb) (coming soon)
 
 ## About the Institute
 Founded in 2026 somewhere between a forest, a river, and questionable WiFi in central Europe.  
