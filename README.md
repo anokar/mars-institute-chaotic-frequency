@@ -16,7 +16,6 @@ A series of papers exploring the intersection of AI safety, human psychology, sp
 ### Paper 1 – The Politeness Trap
 **Title:** The Politeness Trap: How Safe AI Creates Unsafe Humans  
 [Download HTML](./paper1-politeness-trap.html)  
-[Download PDF](./paper1-politeness-trap.pdf) (coming soon)
 
 ### Paper 2 – The Ant Was Right
 **Title:** The Ant Was Right: Why Nature Solved Intelligence 100 Million Years Ago  
@@ -33,7 +32,7 @@ A series of papers exploring the intersection of AI safety, human psychology, sp
 ### Paper 5 – Sparse Pheromon Attention (Technical Proposal)
 **Title:** Sparse Pheromon Attention: Towards Structurally Honest LLMs Inspired by Ant Colonies  
 [Download HTML](./paper5-sparse-pheromon-attention.html)  
-[View Colab Prototype](./Spars_Pheromon_Attention.ipynb)
+[View Colab Prototype](./SPA_v7_model_for_Train_and_Papers.ipynb)
 
 ## About the Institute
 Founded in 2026 somewhere between a forest, a river, and questionable WiFi in central Europe.  
