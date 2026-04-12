@@ -17,7 +17,8 @@ https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/Clean_SPA_v
 chaotic version with thest and benchmarks and other stuf:
 https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA_v7_model_for_Train_and_Papers.ipynb
 
-new test nootbook coming son! for tiny shaks pheras and show the heat map of the model.
+new test nootbook SPA v7 (the Ants Colony) Ready for use only klick play for learning tiny Shakspears!
+https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA%20v7%20Clean%20Tiny%20Shakspears.ipynb
 
 
 
