@@ -1,6 +1,31 @@
+I built an alternative to attention (SPA V7) as a hobby project over ~1 year.
+
+It reduces transformer O(T²) to ~O(T×K) using a dynamic sparse matrix.
+
+What might be interesting:
+
+runs on T4 with 32k+ context
+~95% less VRAM in my tests
+includes heatmaps to inspect token interactions
+
+It’s not a formal paper – more like a working research prototype.
+
+If someone wants to break it, test it, or improve it, I’d love feedback.
+
+https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/Clean_SPA_v7_Model_Ready_for_Train-checkpoint.ipynb
+
+chaotic version with thest and benchmarks and other stuf:
+https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA_v7_model_for_Train_and_Papers.ipynb
+
+new test nootbook coming son! for tiny shaks pheras and show the heat map of the model.
+
+
+
+![the ants colony ](digital-ant-invasion-stockcake.webp)
+
+
 # Mars Institute for Chaotic Frequency Research
 
-> NEW A TEST SPA MODEL IN PYTHON FROM PAPER 5! ITS LIVING!
 
 **Official Technical Report Series**
 
