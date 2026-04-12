@@ -1,4 +1,4 @@
-I built an alternative to attention (SPA V7) as a hobby project over ~1 year.
+I built an alternative to attention (SPA V7) cod name: (the ants colony) as a hobby project over ~1 year.
 
 It reduces transformer O(T²) to ~O(T×K) using a dynamic sparse matrix.
 
