@@ -2,10 +2,6 @@ I built an alternative to attention (SPA V7) cod name: (the ants colony) as a ho
 
 It reduces transformer O(T²) to ~O(T×K) using a dynamic sparse matrix.
 
-What might be interesting:
-
-runs on T4 with 32k+ context
-~95% less VRAM in my tests
 includes heatmaps to inspect token interactions
 
 It’s not a formal paper – more like a working research prototype.
