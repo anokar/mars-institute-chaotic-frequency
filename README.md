@@ -17,8 +17,8 @@ https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/Clean_SPA_v
 chaotic version with thest and benchmarks and other stuf:
 https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA_v7_model_for_Train_and_Papers.ipynb
 
-new test nootbook SPA v7 (the Ants Colony) Ready for use only klick play for learning tiny Shakspears!
-https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA%20v7%20Clean%20Tiny%20Shakspears.ipynb
+new test nootbook SPA v8.1 layer fixet in batch. (the Ants Colony) Ready for use only klick play for learning tiny Shakspears!
+[https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA%20v7%20Clean%20Tiny%20Shakspears.ipynb](https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA_V8_Colab_T4.ipynb)
 
 
 
@@ -58,7 +58,7 @@ A series of papers exploring the intersection of AI safety, human psychology, sp
 ### Paper 5 – Sparse Pheromon Attention (Technical Proposal)
 **Title:** Sparse Pheromon Attention: Towards Structurally Honest LLMs Inspired by Ant Colonies  
 [Download HTML](./paper5-sparse-pheromon-attention.html)  
-[View Colab Prototype](./SPA_v7_model_for_Train_and_Papers.ipynb)
+[View Colab Prototype](./SPA_V8_Colab_T4.ipynb)
 
 ## About the Institute
 Founded in 2026 somewhere between a forest, a river, and questionable WiFi in central Europe.  
