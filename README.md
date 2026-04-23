@@ -12,10 +12,6 @@ It’s not a formal paper – more like a working research prototype.
 
 If someone wants to break it, test it, or improve it, I’d love feedback.
 
-https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/Clean_SPA_v7_Model_Ready_for_Train-checkpoint.ipynb
-
-chaotic version with thest and benchmarks and other stuf:
-https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA_v7_model_for_Train_and_Papers.ipynb
 
 new test nootbook SPA v8.1 layer fixet in batch. (the Ants Colony) Ready for use only klick play for learning tiny Shakspears!
 [https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA%20v7%20Clean%20Tiny%20Shakspears.ipynb](https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA_V8_Colab_T4.ipynb)
