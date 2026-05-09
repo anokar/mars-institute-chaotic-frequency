@@ -27,7 +27,8 @@ SPA wählt nur k Token pro Query mit drei Strategien:
 Ein **Pheromone-Buffer** verstärkt häufig genutzte Attention-Pfade und lässt ungenutzte zerfallen — wie Ameisenkolonien optimale Routen finden.  
 **Auto-Tau** ist eine lernbare Temperatur die Exploration vs. Exploitation selbst reguliert.
 
-colab notebook for spa v8.2 with wiki 103 son!
+Colab Notebook!
+https://github.com/anokar/mars-institute-chaotic-frequency/blob/main/SPA_V8.2_Clean_wiki103.ipynb
 
 
 
